@@ -1,0 +1,33 @@
+CREF classifier weights license
+
+The CREF rights holders grant the MIT License below for the following CREF-owned artifacts. For this grant, the term "Software" includes these weight and normalization files to the extent licensing rights subsist in them.
+
+best_model.pt
+SHA-256: 91797960b6288e92f4bfac3adf4c25a6964e9d7152ce7c09c581397ac13f6c9f
+
+normalization_params.npz
+SHA-256: 41900af246308509ab497bb972e3de3543305d4877d9a357e4f7bc047c73a9de
+
+These are the two files distributed in the CREF v0.2.0 classifier archive. This grant does not cover or relicense the upstream diffusion checkpoints, third-party source code, or datasets. Their original terms remain applicable.
+
+MIT License
+
+Copyright (c) 2026 CREF contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

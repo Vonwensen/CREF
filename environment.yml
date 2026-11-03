@@ -28,8 +28,8 @@ dependencies:
   - tensorboard
   - pip
   - pip:
-      - meeko==0.1.dev3
       - vina==1.2.2
       - pdb2pqr
-# AutoDockTools_py3 is an additional receptor-preparation dependency.
+# Open Babel's obabel executable must be on PATH; Python bindings are not used.
+# AutoDockTools_py3 supplies an external receptor-preparation script.
 # SA scoring also needs RDKit's Contrib SA_Score/fpscores.pkl.gz resource.
