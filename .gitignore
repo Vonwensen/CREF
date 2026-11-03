@@ -21,3 +21,7 @@ tmp/
 *.pqr
 *.pdbqt
 *.npz
+
+# Curated, redistributable generation examples are part of the source release.
+!examples/
+!examples/**
