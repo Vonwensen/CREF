@@ -1,0 +1,35 @@
+# Starting specification based on recovered installation notes.
+# This environment has not been solved or installed as a clean environment.
+name: cref
+channels:
+  - pytorch
+  - nvidia
+  - pyg
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pytorch=1.13.1
+  - pytorch-cuda=11.6
+  - pyg=2.2
+  - pytorch-scatter
+  - pytorch-sparse
+  - pytorch-cluster
+  - rdkit=2022.03
+  - openbabel
+  - numpy
+  - scipy
+  - scikit-learn
+  - numba
+  - matplotlib
+  - tqdm
+  - pyyaml
+  - easydict
+  - python-lmdb
+  - tensorboard
+  - pip
+  - pip:
+      - meeko==0.1.dev3
+      - vina==1.2.2
+      - pdb2pqr
+# AutoDockTools_py3 is an additional receptor-preparation dependency.
+# SA scoring also needs RDKit's Contrib SA_Score/fpscores.pkl.gz resource.

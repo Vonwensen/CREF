@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+data/
+checkpoints/
+runs/
+*.pt
+*.pth
+*.ckpt
+*.lmdb*
+*.sdf
+*.pdb
+.env
+.env.*
+
+# Native generated outputs and docking intermediates
+results/
+tmp/
+*.pqr
+*.pdbqt
+*.npz
