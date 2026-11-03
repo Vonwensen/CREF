@@ -2,6 +2,8 @@
 
 Generation code for **CREF: A Critique-Refinement Sampling Framework for Target-aware Molecule Diffusion Models** (unpublished manuscript).
 
+The **v0.2.1 software archive** is publicly available on Zenodo: [doi:10.5281/zenodo.23916114](https://doi.org/10.5281/zenodo.23916114). The corresponding [GitHub release](https://github.com/Vonwensen/CREF/releases/tag/v0.2.1) provides the source snapshot. This DOI identifies the software archive, not a published CREF manuscript.
+
 The three backbones are independent native-style projects. Each provides `sample.py`, `evaluate.py`, `models/cref.py`, `rejection/train.py`, and `configs/sampling.yml`. Run commands inside the chosen backbone directory. There is no package installation, unified launcher, or required check suite.
 
 ## Environment
@@ -68,7 +70,11 @@ The copyright label “CREF contributors” denotes the rights holders of the or
 
 The CREF manuscript has not been published. Add the formal paper citation when public metadata is available; retain citations to the original dataset and backbone papers.
 
-Source version: **0.2.1**. Includes small generation fixtures, component license records, and the standard-format reconstruction/ligand-preparation adapters described above. The DecompDiff auxiliary pool supports the small example split while preserving the original selection range for full datasets. This source version is prepared locally; GitHub/Zenodo publication is a separate step. Single-pocket generation/evaluation is not a full benchmark reproduction.
+Source version: **0.2.1**, published as a [GitHub release](https://github.com/Vonwensen/CREF/releases/tag/v0.2.1) and [Zenodo software archive](https://doi.org/10.5281/zenodo.23916114). Includes small generation fixtures, component license records, and the standard-format reconstruction/ligand-preparation adapters described above. The DecompDiff auxiliary pool supports the small example split while preserving the original selection range for full datasets. Single-pocket generation/evaluation is not a full benchmark reproduction.
+
+Software citation, following the public Zenodo record:
+
+Zhang, J. (2026). *CREF: A Critique-Refinement Sampling Framework for Target-aware Molecule Diffusion Models* (Version 0.2.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.23916114
 
 The standardized filenames were re-tested with one molecule from one pocket per backbone: all three completed generation and evaluated one molecule successfully. The validation scripts and logs are intentionally not included in this compact source archive.
 
