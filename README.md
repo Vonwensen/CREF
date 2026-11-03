@@ -22,7 +22,23 @@ Use the public CrossDocked2020 data and each backbone's required processed repre
 - [DecompDiff data and checkpoints](https://github.com/bytedance/DecompDiff#preprocess)
 - [IPDiff data and checkpoints](https://github.com/YangLing0818/IPDiff#data-and-preparation)
 
-Follow the selected backbone's local README for filenames and commands. CREF requires the Vina-supervised classifier `rejection/best_model.pt` together with `rejection/normalization_params.npz`. A public CREF checkpoint download endpoint has not yet been provided; backbone download links do not supply this classifier.
+Follow the selected backbone's local README for filenames and commands. Backbone checkpoints are downloaded from the upstream projects linked above.
+
+### CREF classifier
+
+Download the [CREF classifier weights for v0.2.0](https://github.com/Vonwensen/CREF/releases/download/v0.2.0/cref_classifier.zip). The archive contains the Vina-supervised classifier `best_model.pt` and its paired `normalization_params.npz`. The same pair is used by all three backbones.
+
+Run the following commands inside the chosen backbone directory (`targetdiff`, `decompdiff`, or `ipdiff`):
+
+```bash
+curl -fL https://github.com/Vonwensen/CREF/releases/download/v0.2.0/cref_classifier.zip -o cref_classifier.zip
+mkdir -p rejection
+unzip cref_classifier.zip -d rejection
+```
+
+The resulting files must be `rejection/best_model.pt` and `rejection/normalization_params.npz`. If using more than one backbone, place the pair in each backbone's `rejection/` directory. This archive supplies the CREF classifier; the upstream diffusion checkpoints and datasets are still required.
+
+SHA-256 of `cref_classifier.zip`: `db45b0a1d25c2d641de101266287f74ae9531c3fd0c7ea791c5bcce47bc4380c`. The public download was checked against the source files before documenting this link.
 
 ## Generation
 
@@ -34,11 +50,11 @@ The classifier is trained with Vina-based binary labels. The Vina/QED/SA product
 
 Original CREF contributions are licensed under MIT; see the root `LICENSE`. Original and adapted third-party code retains its own terms. In particular, DecompDiff-derived code remains subject to its CC BY-NC 4.0 conditions. The root MIT license does not remove those conditions. See `THIRD_PARTY_NOTICES.md` and the license in each backbone directory. Model weights and datasets are separate artifacts and must be used under their applicable terms.
 
-The anonymous copyright label “CREF contributors” denotes the rights holders of the original CREF contributions, not the authors of the upstream models. Confirm the final rights-holder attribution before an identified public release.
+The copyright label “CREF contributors” denotes the rights holders of the original CREF contributions, not the authors of the upstream models.
 
 ## Paper and version
 
-The CREF manuscript has not been published. No DOI, publication venue, or author list is invented in this anonymous package. Add the formal paper citation when public metadata is available; retain citations to the original dataset and backbone papers.
+The CREF manuscript has not been published. Add the formal paper citation when public metadata is available; retain citations to the original dataset and backbone papers.
 
 Source release: **0.2.0**. This release standardizes filenames and removes legacy entry points and release-check tooling. Single-pocket generation/evaluation is checked separately during preparation; it is not a full benchmark reproduction.
 
