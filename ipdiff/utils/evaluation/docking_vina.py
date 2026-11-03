@@ -1,12 +1,10 @@
-from openbabel import pybel
-from meeko import MoleculePreparation
-from meeko import obutils
+# CREF modification (2026-11-03): use external chemistry tools via standard files.
+from utils.obabel_cli import LigandPreparation as PrepLig, receptor_preparer
 from vina import Vina
 import subprocess
 import rdkit.Chem as Chem
 from rdkit.Chem import AllChem
 import tempfile
-import AutoDockTools
 import os
 import contextlib
 
@@ -21,37 +19,6 @@ def supress_stdout(func):
                 return func(*a, **ka)
     return wrapper
 
-
-class PrepLig(object):
-    def __init__(self, input_mol, mol_format):
-        if mol_format == 'smi':
-            self.ob_mol = pybel.readstring('smi', input_mol)
-        elif mol_format == 'sdf': 
-            self.ob_mol = next(pybel.readfile(mol_format, input_mol))
-        else:
-            raise ValueError(f'mol_format {mol_format} not supported')
-        
-    def addH(self, polaronly=False, correctforph=True, PH=7): 
-        self.ob_mol.OBMol.AddHydrogens(polaronly, correctforph, PH)
-        obutils.writeMolecule(self.ob_mol.OBMol, 'tmp_h.sdf')
-
-    def gen_conf(self):
-        sdf_block = self.ob_mol.write('sdf')
-        rdkit_mol = Chem.MolFromMolBlock(sdf_block, removeHs=False)
-        AllChem.EmbedMolecule(rdkit_mol, Chem.rdDistGeom.ETKDGv3())
-        self.ob_mol = pybel.readstring('sdf', Chem.MolToMolBlock(rdkit_mol))
-        obutils.writeMolecule(self.ob_mol.OBMol, 'conf_h.sdf')
-
-    @supress_stdout
-    def get_pdbqt(self, lig_pdbqt=None):
-        preparator = MoleculePreparation()
-        preparator.prepare(self.ob_mol.OBMol)
-        if lig_pdbqt is not None: 
-            preparator.write_pdbqt_file(lig_pdbqt)
-            return 
-        else: 
-            return preparator.write_pdbqt_string()
-        
 
 class PrepProt(object): 
     def __init__(self, pdb_file): 
@@ -72,7 +39,7 @@ class PrepProt(object):
                          stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL).communicate()
 
     def get_pdbqt(self, prot_pdbqt):
-        prepare_receptor = os.path.join(AutoDockTools.__path__[0], 'Utilities24/prepare_receptor4.py')
+        prepare_receptor = receptor_preparer()
         subprocess.Popen(['python3', prepare_receptor, '-r', self.prot_pqr, '-o', prot_pdbqt],
                          stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL).communicate()
 

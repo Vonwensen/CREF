@@ -1,0 +1,33 @@
+{
+  "scope": "Compatibility evidence for 3 molecules only; not validation of manuscript benchmark equivalence.",
+  "backend": "cref-standard-formats-v1",
+  "records": [
+    {
+      "backbone": "targetdiff",
+      "scope": "One previously generated molecule, same coordinates and elements.",
+      "legacy_smiles": "CN1C=NC2=C(C1)OC(C1=CC(O)C=CC1O)C2CCC(O)C(=O)O",
+      "legacy_qed": 0.4989847769326347,
+      "replacement_smiles": "CN1C=C2OC(c3cc(O)ccc3O)C(CCC(O)C(=O)O)C2=NC1",
+      "replacement_qed": 0.5895830692431644,
+      "same_smiles": false
+    },
+    {
+      "backbone": "decompdiff",
+      "scope": "One previously generated molecule, same coordinates and elements.",
+      "legacy_smiles": "CC(C)CCNCC1CN(C(C(=O)O)C(O)CCOC2CC(O)(O)CSC2F)C(=O)N1",
+      "legacy_qed": 0.16810175382598783,
+      "replacement_smiles": "CC(C)CCNCc1cn([C@H](C(=O)O)[C@@H](O)CCO[C@@H]2CC(O)(O)CS[C@@H]2F)c(=O)[nH]1",
+      "replacement_qed": 0.18721164840448726,
+      "same_smiles": false
+    },
+    {
+      "backbone": "ipdiff",
+      "scope": "One previously generated molecule, same coordinates and elements.",
+      "legacy_smiles": "C=CC(=C)C=C(O)CC(CC1CCC(O)(C(C)O)C(O)C1)C(=C)OC",
+      "legacy_qed": 0.378267447320864,
+      "replacement_smiles": "C=CC(=C)/C=C(\\O)CC(CC1C2C[C@@]3(O)C(O)(C12)[C@]3(C)O)C(=C)OC",
+      "replacement_qed": 0.39886454600912863,
+      "same_smiles": false
+    }
+  ]
+}

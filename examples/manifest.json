@@ -1,0 +1,173 @@
+{
+  "purpose": "Small generation examples, not a training or benchmark split.",
+  "dataset": "CrossDocked2020",
+  "upstream_data_url": "https://bits.csb.pitt.edu/files/crossdock2020/",
+  "raw_data_license_url": "https://bits.csb.pitt.edu/files/crossdock2020/LICENSE",
+  "raw_data_license": "CC0-1.0",
+  "decomposition_metadata_terms": "Retain DecompDiff CC-BY-NC-4.0 for its derived metadata and atom-count statistics.",
+  "backbones": {
+    "targetdiff": {
+      "test_pocket": {
+        "ligand_filename": "BSD_ASPTE_1_130_0/2z3h_A_rec_1wn6_bst_lig_tt_docked_3.sdf",
+        "protein_filename": "BSD_ASPTE_1_130_0/2z3h_A_rec_1wn6_bst_lig_tt_docked_3_pocket10.pdb"
+      },
+      "test_records": 1,
+      "auxiliary_records": 10,
+      "original_test_dataset_index": 3011,
+      "original_auxiliary_train_positions": [
+        52980,
+        82543,
+        71317,
+        36269,
+        32418,
+        83233,
+        4543,
+        58127,
+        62100,
+        75278
+      ],
+      "original_auxiliary_dataset_indices": [
+        82737,
+        68850,
+        81186,
+        108032,
+        166295,
+        47221,
+        146292,
+        162428,
+        49523,
+        147749
+      ],
+      "processed_records": 11,
+      "changes": "Subset and reindex records; rewrite absolute source paths as relative example paths; retain coordinate/features.",
+      "files": {
+        "data/example_processed_final.lmdb": {
+          "sha256": "f043ee50636b3ace68e6f3c58088e8cf91d01b6d8d23cc44044678f0fe4a647d",
+          "bytes": 278528
+        },
+        "data/example_split.pt": {
+          "sha256": "7f9fbce4209dea8b6409c0e511705614ebbf64b4d3b0f60505b01a75896de373",
+          "bytes": 507
+        },
+        "data/test_set/BSD_ASPTE_1_130_0/2z3h_A_rec.pdb": {
+          "sha256": "2b82782d532dc453936e476b8bc92402bdea86e3952bbacf0e4ed0a9dd8c131b",
+          "bytes": 280262
+        }
+      }
+    },
+    "ipdiff": {
+      "test_pocket": {
+        "ligand_filename": "BSD_ASPTE_1_130_0/2z3h_A_rec_1wn6_bst_lig_tt_docked_3.sdf",
+        "protein_filename": "BSD_ASPTE_1_130_0/2z3h_A_rec_1wn6_bst_lig_tt_docked_3_pocket10.pdb"
+      },
+      "test_records": 1,
+      "auxiliary_records": 10,
+      "original_test_dataset_index": 3011,
+      "original_auxiliary_train_positions": [
+        61615,
+        23816,
+        95455,
+        75805,
+        39813,
+        26240,
+        94832,
+        53751,
+        99249,
+        93928
+      ],
+      "original_auxiliary_dataset_indices": [
+        126818,
+        111916,
+        35180,
+        99449,
+        17449,
+        3307,
+        52944,
+        71508,
+        70649,
+        150803
+      ],
+      "processed_records": 11,
+      "changes": "Subset and reindex records; rewrite absolute source paths as relative example paths; retain coordinate/features.",
+      "files": {
+        "data/example_pocket10_processed_final.lmdb": {
+          "sha256": "68c7768b3eb8d262988d67a59336ee80c5e4139354de295c02a339af0ecbe766",
+          "bytes": 262144
+        },
+        "data/example_split.pt": {
+          "sha256": "7f9fbce4209dea8b6409c0e511705614ebbf64b4d3b0f60505b01a75896de373",
+          "bytes": 507
+        },
+        "data/test_set/BSD_ASPTE_1_130_0/2z3h_A_rec.pdb": {
+          "sha256": "e9b154748531cc8a1b6318d9e39b469e8fc74fdbfd96ee351c0319652fcb28fb",
+          "bytes": 280261
+        }
+      }
+    },
+    "decompdiff": {
+      "test_pocket": {
+        "ligand_filename": "BSD_ASPTE_1_130_0/2z3h_A_rec_1wn6_bst_lig_tt_docked_3.sdf",
+        "protein_filename": "BSD_ASPTE_1_130_0/2z3h_A_rec.pdb"
+      },
+      "test_records": 1,
+      "auxiliary_records": 10,
+      "original_test_dataset_index": 99165,
+      "original_auxiliary_train_positions": [
+        52980,
+        82543,
+        71317,
+        36269,
+        32418,
+        83233,
+        4543,
+        58127,
+        62100,
+        75278
+      ],
+      "original_auxiliary_dataset_indices": [
+        52980,
+        82543,
+        71317,
+        36269,
+        32418,
+        83233,
+        4543,
+        58127,
+        62100,
+        75278
+      ],
+      "processed_records": 11,
+      "changes": "Subset and reindex records; rewrite absolute source paths as relative example paths; retain coordinate/features.",
+      "files": {
+        "data/example_full_ref_prior_aromatic.lmdb": {
+          "sha256": "5a3d4e735899594e95e245703c92c3cc282c84caa5895076088a787822b9a195",
+          "bytes": 319488
+        },
+        "data/example_full_ref_prior_aromatic_name2id.pt": {
+          "sha256": "cce9e19515703cb28923e61f92dbe6d34b9f814fc4d9a39b12aca2e8fad55575",
+          "bytes": 1327
+        },
+        "data/example_split.pt": {
+          "sha256": "ccbd5964018d89ceb699aef3814e96d407def05ec5d1553af67d52e3e54380d0",
+          "bytes": 1659
+        },
+        "data/example_test_index.pkl": {
+          "sha256": "baeb1b7c4a6ed6281658d890839617e20dd608d4daabce80a3706037cb3d6ac2",
+          "bytes": 1011
+        },
+        "data/test_set/BSD_ASPTE_1_130_0/2z3h_A_rec.pdb": {
+          "sha256": "e9b154748531cc8a1b6318d9e39b469e8fc74fdbfd96ee351c0319652fcb28fb",
+          "bytes": 280261
+        },
+        "utils/evaluation/arm_num_config.pkl": {
+          "sha256": "5611d45cd17517dd2a0cda3b5b2fed6cef251875374bdce67777ecf326fbcf55",
+          "bytes": 7118
+        },
+        "utils/evaluation/scaffold_num_config.pkl": {
+          "sha256": "98b73841360cca630620415d94d3103eec8d9caf840e20d37b7cc767bd2839dd",
+          "bytes": 9218
+        }
+      }
+    }
+  }
+}

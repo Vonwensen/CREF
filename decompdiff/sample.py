@@ -644,7 +644,9 @@ if __name__ == '__main__':
     )
     train_set, val_set = subsets['train'], subsets['test']
     data_ids = list(range(args.start_index, args.end_index + 1))
-    random_ids = random.sample(range(0, 99900 + 1), 10)
+    # Keep the original pool for full data and support the small example subset.
+    auxiliary_pool_size = min(len(train_set), 99901)
+    random_ids = random.sample(range(auxiliary_pool_size), min(10, auxiliary_pool_size))
     # 生成data_list
     data_list = [train_set[idx] for idx in random_ids]
     r_model = EnhancedGNNClassifier(

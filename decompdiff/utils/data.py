@@ -8,7 +8,9 @@ from rdkit import Chem
 from rdkit.Chem.rdchem import BondType
 from rdkit.Chem import ChemicalFeatures
 from rdkit import RDConfig
-from openbabel import openbabel as ob
+# CREF modification (2026-11-03): standard-format conversion via external obabel.
+from pathlib import Path
+from utils.obabel_cli import convert
 import torch
 
 
@@ -28,19 +30,8 @@ HYBRIDIZATION_TYPE_ID = {s: i for i, s in enumerate(HYBRIDIZATION_TYPE)}
 
 
 def convert_sdf_to_pdb(sdf_path, pdb_path):
-    obConversion = ob.OBConversion()
-    obConversion.SetInAndOutFormats("sdf", "pdb")
-
-    mol = ob.OBMol()
-    obConversion.ReadFile(mol, sdf_path)
-
-    # mol.AddHydrogens()
-
-    # print mol.NumAtoms()
-    # print mol.NumBonds()
-    # print mol.NumResidues()
-
-    obConversion.WriteFile(mol, pdb_path)
+    text = convert(Path(sdf_path).read_text(), 'sdf', 'pdb')
+    Path(pdb_path).write_text(text)
 
 
 class PDBProtein(object):

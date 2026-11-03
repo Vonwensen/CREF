@@ -1,0 +1,72 @@
+{
+  "backbones": [
+    {
+      "fixture_only_data": true,
+      "evaluated_molecules": 1,
+      "evaluation_status": {
+        "attempted_pockets": 1,
+        "reconstructed": 1,
+        "connected": 1,
+        "evaluated": 1
+      },
+      "tested_generation_command": "python sample.py --config configs/sampling.yml --start_index 0 --end_index 0 --batch_size 1 --device cuda:0 --result_path results --data_root data/example --split_path data/example_split.pt --max_data_id 10 --num_extra_proteins 10",
+      "generation_exit": 0,
+      "evaluation_exit": 0,
+      "elapsed_seconds": 84.77,
+      "diffusion_steps": 1000,
+      "backbone": "targetdiff"
+    },
+    {
+      "fixture_only_data": true,
+      "evaluated_molecules": 1,
+      "evaluation_status": {
+        "attempted_pockets": 1,
+        "evaluated": 1
+      },
+      "tested_generation_command": "python sample.py --config configs/sampling.yml --start_index 0 --end_index 0 --batch_size 1 --device cuda:0 --result_path results --data_root data/example --split_path data/example_split.pt --index_path data/example_test_index.pkl --outdir results",
+      "generation_exit": 0,
+      "evaluation_exit": 0,
+      "elapsed_seconds": 312.56,
+      "diffusion_steps": 1000,
+      "backbone": "decompdiff"
+    },
+    {
+      "fixture_only_data": true,
+      "evaluated_molecules": 1,
+      "evaluation_status": {
+        "attempted_pockets": 1,
+        "reconstructed": 1,
+        "connected": 1,
+        "evaluated": 1
+      },
+      "tested_generation_command": "python sample.py --config configs/sampling.yml --start_index 0 --end_index 0 --batch_size 1 --device cuda:0 --result_path results --max_data_id 10 --num_extra_proteins 10 --train_config ../examples/ipdiff/training.yml",
+      "generation_exit": 0,
+      "evaluation_exit": 0,
+      "elapsed_seconds": 182.64,
+      "diffusion_steps": 1000,
+      "backbone": "ipdiff"
+    }
+  ],
+  "backend": "cref-standard-formats-v1",
+  "tested_date": "2026-11-03",
+  "scope": "One held-out pocket and ten auxiliary records per backbone; execution examples, not manuscript benchmark reproduction",
+  "note": "Only the bundled example data were copied into fresh backbone data directories; model checkpoints and the classifier pair were supplied separately. The standard-format reconstruction and external ligand preparation can change molecular identity and property scores relative to legacy releases.",
+  "source_version": "0.2.1",
+  "environment": {
+    "openbabel_cli": "3.1.0",
+    "decompdiff": {
+      "python": "3.8.18",
+      "pyg": "2.6.1",
+      "rdkit": "2022.03.5",
+      "torch": "1.13.1+cu116"
+    },
+    "platform": "Linux; existing scientific environments, not a newly solved installation",
+    "targetdiff_ipdiff": {
+      "python": "3.8.20",
+      "pyg": "2.2.0",
+      "rdkit": "2022.03.3",
+      "torch": "1.13.1+cu116"
+    }
+  },
+  "full_benchmark_lmdb_available_in_test_directory": false
+}
