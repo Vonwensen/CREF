@@ -50,13 +50,15 @@ For a small execution example without downloading the full benchmark, follow [ex
 
 Choose `targetdiff`, `decompdiff`, or `ipdiff`, prepare its external files, and run the command in that directory's README. The supplied sampling configuration generates one molecule with the original 1000-step schedule. Increase `sample.num_samples` in the YAML for more samples. Keep the 1000-step schedule for the current time-indexed intervention logic.
 
-The classifier is trained with Vina-based binary labels. The Vina/QED/SA product reward used during sampling is a separate mechanism. Training code is retained for reference; the release's supported purpose is pretrained generation, not reproduction of every paper table or classifier-training dataset.
+The classifier is trained with Vina-based binary labels. The Vina/QED/SA product reward used during sampling is a separate mechanism. Training code is retained for reference; the full classifier-training trajectories and their Vina-derived labels are not included in this release.
 
 ## Reconstruction and numerical scope
 
 Version 0.2.1 replaces the formerly bundled reconstruction implementation with CREF-authored MIT adapters. Coordinate-only inputs are exchanged with the separately installed `obabel` executable through XYZ/SDF files; explicit predicted bonds use RDKit and, when needed, an adjacency-preserving SDF normalization through `obabel`. Input atom order and coordinates are checked and retained. Ligand PDBQT preparation also uses the external command. The legacy custom bond-pruning and aromatic/valence-repair implementation is not included.
 
-This changes the reconstruction and ligand-preparation backend, including molecular identity, aromaticity, charges and resulting Vina/QED/SA values in some cases. The same-coordinate comparison in `examples/reconstruction_comparison.json` records observed differences. Because these scores also influence CREF candidate selection, generated trajectories can change. This generation release has not been validated as numerically equivalent to the manuscript's original pipeline; reproducing its tables requires a corresponding benchmark rerun or appropriately licensed original implementation. Cite the specific source version/backend used for new experiments.
+The benchmark results reported in the current CREF manuscript were obtained with the v0.2.1 implementation, including this molecular reconstruction and ligand-preparation backend. The server-side benchmark implementation and the public v0.2.1 release use the same generation and evaluation code.
+
+Reconstruction and ligand preparation can affect molecular identity, aromaticity, charges, and Vina/QED/SA values. The same-coordinate comparison in `examples/reconstruction_comparison.json` documents backend sensitivity; it is not a full benchmark reproduction. Reproducing a manuscript table additionally requires the corresponding benchmark inputs, checkpoints, sampling and evaluation configurations, and result-selection protocol. The bundled small examples demonstrate execution and do not independently reproduce the full benchmark. Cite the specific source version and configuration used for new experiments.
 
 ## License and attribution
 
